@@ -27,7 +27,7 @@ set({ "v", "n" }, "<leader>d", '"_d', { desc = "Cut to the void (Delete without 
 set("n", "<leader>dp", '"_ddp', { desc = "Cut line to the void (Delete line without copying)" })
 set("n", "<leader>dd", '"_dd', { desc = "Cut line to the void replacing it with current yank" })
 
-set("n", "Q", "<nop>", { desc = "DISABLED: Close NeoVim" })
+set("n", "Q", vim.cmd.ConfirmQuitAll, { desc = "DISABLED: Close NeoVim" })
 
 set("i", "<C-c>", "<Esc>")
 
