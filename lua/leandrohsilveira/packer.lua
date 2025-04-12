@@ -105,11 +105,6 @@ return require('packer').startup(function(use)
     use { 'nvim-telescope/telescope-ui-select.nvim' }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use 'famiu/bufdelete.nvim'
-    use {
-        "yutkat/confirm-quit.nvim",
-        event = "CmdlineEnter",
-        config = function() require "confirm-quit".setup() end,
-    }
     if packer_bootstrap then
         require('packer').sync()
     end
