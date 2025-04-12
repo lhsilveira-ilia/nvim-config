@@ -1,5 +1,9 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+vim.diagnostic.config({
+    update_in_insert = true,
+})
+
 -- Default configuration
 require("tiny-inline-diagnostic").setup({
     -- Style preset for diagnostic messages
@@ -30,12 +34,12 @@ require("tiny-inline-diagnostic").setup({
     options = {
         -- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
         show_source = {
-            enabled = false,
+            enabled = true,
             if_many = false,
         },
 
         -- Use icons defined in the diagnostic configuration
-        use_icons_from_diagnostic = false,
+        use_icons_from_diagnostic = true,
 
         -- Set the arrow icon to the same color as the first diagnostic severity
         set_arrow_to_diag_color = false,
@@ -47,7 +51,7 @@ require("tiny-inline-diagnostic").setup({
         -- Time (in milliseconds) to throttle updates while moving the cursor
         -- Increase this value for better performance if your computer is slow
         -- or set to 0 for immediate updates and better visual
-        throttle = 20,
+        throttle = 0,
 
         -- Minimum message length before wrapping to a new line
         softwrap = 30,
@@ -65,10 +69,10 @@ require("tiny-inline-diagnostic").setup({
         -- }
         multilines = {
             -- Enable multiline diagnostic messages
-            enabled = false,
+            enabled = true,
 
             -- Always show messages on all lines for multiline diagnostics
-            always_show = false,
+            always_show = true,
         },
 
         -- Display all diagnostic messages on the cursor line
@@ -76,7 +80,7 @@ require("tiny-inline-diagnostic").setup({
 
         -- Enable diagnostics in Insert mode
         -- If enabled, it is better to set the `throttle` option to 0 to avoid visual artifacts
-        enable_on_insert = false,
+        enable_on_insert = true,
 
         -- Enable diagnostics in Select mode (e.g when auto inserting with Blink)
         enable_on_select = false,

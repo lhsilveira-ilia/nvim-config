@@ -2,28 +2,33 @@ vim.g.mapleader = " "
 
 local set = vim.keymap.set;
 
-set('v', '<leader>y', '"+y')
-set('n', '<leader>y', '"+y')
-set('n', '<leader>Y', '"+yg_')
-set('n', '<leader>yy', '"+yy')
+set('v', '<leader>y', '"+y', { desc = "Yank to clipboard" })
+set('n', '<leader>y', '"+y', { desc = "Yank to clipboard" })
+set('n', '<leader>Y', '"+yg_', { desc = "Yank remaining to end of line to clipboard" })
+set('n', '<leader>yy', '"+yy', { desc = "Yank the entire line to clipboard" })
 
-set('n', '<leader>w', ':w<CR>')
-set('n', '<leader>W', ':wbd<CR>')
-set("n", "<leader>ex", vim.cmd.Ex)
-set("n", "<leader>q", ":bd<CR>")
+set('n', '<leader>w', ':w<CR>', { desc = "Write buffer (Save file)" })
+set('n', '<C-s>', ':w<CR>', { desc = "Write buffer (Save file)" })
+set('n', '<C-S-S>', ':waCR>', { desc = "Write all buffers (Save all files)" })
+set('n', '<leader>W', ':wbd<CR>', { desc = "Write buffer and close it" })
+set("n", "<leader>ex", vim.cmd.Ex, { desc = "Open NeoVim builtin file explorer" })
+set("n", "<leader>ee", vim.cmd.Neotree, { desc = "Open NeoTree file explorer" })
 
-set("v", "J", ":m '>+1<CR>gv=gv")
-set("v", "K", ":m '<-2<CR>gv=gv")
+-- keymap set in bufdelete plugin
+-- set("n", "<leader>q", ":bd<CR>", { desc = "Close buffer" })
 
-set("n", "<C-d>", "<C-d>zz")
-set("n", "<C-u>", "<C-u>zz")
+set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line up" })
+set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line down" })
 
-set("x", "<leader>p", '"_dP')
-set("v", "<leader>d", '"_d')
-set("n", "<leader>d", '"_d')
-set("n", "<leader>dd", '"_dd')
+set("n", "<C-d>", "<C-d>zz", { desc = "Page up and centralize line" })
+set("n", "<C-u>", "<C-u>zz", { desc = "Page down and centralize line" })
 
-set("n", "Q", "<nop>")
+set("x", "<leader>dp", '"_dp', { desc = "Cut to the void replacing it with current yank" })
+set({ "v", "n" }, "<leader>d", '"_d', { desc = "Cut to the void (Delete without copying)" })
+set("n", "<leader>dp", '"_ddp', { desc = "Cut line to the void (Delete line without copying)" })
+set("n", "<leader>dd", '"_dd', { desc = "Cut line to the void replacing it with current yank" })
+
+set("n", "Q", "<nop>", { desc = "DISABLED: Close NeoVim" })
 
 set("i", "<C-c>", "<Esc>")
 

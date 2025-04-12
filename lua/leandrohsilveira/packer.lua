@@ -11,6 +11,8 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+vim.keymap.set("n", "<leader>ps", vim.cmd.PackerSync, { desc = "Synchronize plugins (PackerSync)" })
+
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use "nvim-lua/plenary.nvim"
@@ -27,9 +29,10 @@ return require('packer').startup(function(use)
     use {
         'daltonmenezes/aura-theme',
         rtp = 'packages/neovim',
-        config = function()
-            vim.cmd("colorscheme aura-dark") -- Or any Aura theme available
-        end
+    }
+    use {
+        'folke/tokyonight.nvim',
+        rtp = 'packages/neovim',
     }
     use {
         "ThePrimeagen/harpoon",
@@ -55,7 +58,7 @@ return require('packer').startup(function(use)
         'williamboman/mason-lspconfig.nvim',
         'mfussenegger/nvim-dap',
         'mfussenegger/nvim-lint',
-        'mhartington/formatter.nvim'
+        "stevearc/conform.nvim",
     }
     use {
         "rcarriga/nvim-dap-ui",
@@ -65,6 +68,10 @@ return require('packer').startup(function(use)
         }
     }
     use {
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    }
+    use {
         "rachartier/tiny-inline-diagnostic.nvim",
         priority = 1000, -- needs to be loaded in first
         config = function()
@@ -72,16 +79,32 @@ return require('packer').startup(function(use)
             vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
         end
     }
+    use 'nvim-tree/nvim-web-devicons'
+    use 'm4xshen/autoclose.nvim'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
-    -- My plugins here
-    -- use 'foo1/bar1.nvim'
-    -- use 'foo2/bar2.nvim'
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = 'v2.*',
+        config = function()
+            require("toggleterm").setup()
+        end
+    }
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+    }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use 'famiu/bufdelete.nvim'
     if packer_bootstrap then
         require('packer').sync()
     end
