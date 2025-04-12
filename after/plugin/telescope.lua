@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope previous
 vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = 'Telescope search colorschemes' })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope search keymaps' })
 
-vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find git files' })
+vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
 
 vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, { desc = 'Telescope search colorschemes' })
 

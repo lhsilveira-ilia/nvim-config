@@ -12,7 +12,6 @@ set('n', '<C-s>', ':w<CR>', { desc = "Write buffer (Save file)" })
 set('n', '<C-S-S>', ':waCR>', { desc = "Write all buffers (Save all files)" })
 set('n', '<leader>W', ':wbd<CR>', { desc = "Write buffer and close it" })
 set("n", "<leader>ex", vim.cmd.Ex, { desc = "Open NeoVim builtin file explorer" })
-set("n", "<leader>ee", vim.cmd.Neotree, { desc = "Open NeoTree file explorer" })
 
 -- keymap set in bufdelete plugin
 -- set("n", "<leader>q", ":bd<CR>", { desc = "Close buffer" })
