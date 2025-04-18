@@ -1,21 +1,25 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+return {
+  "rachartier/tiny-inline-diagnostic.nvim",
+  priority = 1000, -- needs to be loaded in first
+  config = function()
+    require('tiny-inline-diagnostic').setup()
+    vim.diagnostic.config({
+      virtual_text = false,
+      update_in_insert = true,
+    }) -- Only if needed in your configuration, if you already have native LSP diagnostics
 
-vim.diagnostic.config({
-    update_in_insert = true,
-})
+    -- Default configuration
+    require("tiny-inline-diagnostic").setup({
+      -- Style preset for diagnostic messages
+      -- Available options:
+      -- "modern", "classic", "minimal", "powerline",
+      -- "ghost", "simple", "nonerdfont", "amongus"
+      preset = "modern",
 
--- Default configuration
-require("tiny-inline-diagnostic").setup({
-    -- Style preset for diagnostic messages
-    -- Available options:
-    -- "modern", "classic", "minimal", "powerline",
-    -- "ghost", "simple", "nonerdfont", "amongus"
-    preset = "modern",
+      transparent_bg = false,       -- Set the background of the diagnostic to transparent
+      transparent_cursorline = false, -- Set the background of the cursorline to transparent (only one the first diagnostic)
 
-    transparent_bg = false,         -- Set the background of the diagnostic to transparent
-    transparent_cursorline = false, -- Set the background of the cursorline to transparent (only one the first diagnostic)
-
-    hi = {
+      hi = {
         error = "DiagnosticError", -- Highlight group for error messages
         warn = "DiagnosticWarn",   -- Highlight group for warning messages
         info = "DiagnosticInfo",   -- Highlight group for informational messages
@@ -29,13 +33,13 @@ require("tiny-inline-diagnostic").setup({
         -- Color blending option for the diagnostic background
         -- Use "None" or a hexadecimal color (#RRGGBB) to blend with another color
         mixing_color = "None",
-    },
+      },
 
-    options = {
+      options = {
         -- Display the source of the diagnostic (e.g., basedpyright, vsserver, lua_ls etc.)
         show_source = {
-            enabled = true,
-            if_many = false,
+          enabled = true,
+          if_many = false,
         },
 
         -- Use icons defined in the diagnostic configuration
@@ -68,11 +72,11 @@ require("tiny-inline-diagnostic").setup({
         --      always_show = false,
         -- }
         multilines = {
-            -- Enable multiline diagnostic messages
-            enabled = true,
+          -- Enable multiline diagnostic messages
+          enabled = true,
 
-            -- Always show messages on all lines for multiline diagnostics
-            always_show = true,
+          -- Always show messages on all lines for multiline diagnostics
+          always_show = true,
         },
 
         -- Display all diagnostic messages on the cursor line
@@ -86,26 +90,26 @@ require("tiny-inline-diagnostic").setup({
         enable_on_select = false,
 
         overflow = {
-            -- Manage how diagnostic messages handle overflow
-            -- Options:
-            -- "wrap" - Split long messages into multiple lines
-            -- "none" - Do not truncate messages
-            -- "oneline" - Keep the message on a single line, even if it's long
-            mode = "wrap",
+          -- Manage how diagnostic messages handle overflow
+          -- Options:
+          -- "wrap" - Split long messages into multiple lines
+          -- "none" - Do not truncate messages
+          -- "oneline" - Keep the message on a single line, even if it's long
+          mode = "wrap",
 
-            -- Trigger wrapping to occur this many characters earlier when mode == "wrap".
-            -- Increase this value appropriately if you notice that the last few characters
-            -- of wrapped diagnostics are sometimes obscured.
-            padding = 0,
+          -- Trigger wrapping to occur this many characters earlier when mode == "wrap".
+          -- Increase this value appropriately if you notice that the last few characters
+          -- of wrapped diagnostics are sometimes obscured.
+          padding = 0,
         },
 
         -- Configuration for breaking long messages into separate lines
         break_line = {
-            -- Enable the feature to break messages after a specific length
-            enabled = false,
+          -- Enable the feature to break messages after a specific length
+          enabled = false,
 
-            -- Number of characters after which to break the line
-            after = 30,
+          -- Number of characters after which to break the line
+          after = 30,
         },
 
         -- Custom format function for diagnostic messages
@@ -117,8 +121,8 @@ require("tiny-inline-diagnostic").setup({
 
 
         virt_texts = {
-            -- Priority for virtual text display
-            priority = 2048,
+          -- Priority for virtual text display
+          priority = 2048,
         },
 
         -- Filter diagnostics by severity
@@ -128,15 +132,17 @@ require("tiny-inline-diagnostic").setup({
         -- vim.diagnostic.severity.INFO
         -- vim.diagnostic.severity.HINT
         severity = {
-            vim.diagnostic.severity.ERROR,
-            vim.diagnostic.severity.WARN,
-            vim.diagnostic.severity.INFO,
-            vim.diagnostic.severity.HINT,
+          vim.diagnostic.severity.ERROR,
+          vim.diagnostic.severity.WARN,
+          vim.diagnostic.severity.INFO,
+          vim.diagnostic.severity.HINT,
         },
 
         -- Events to attach diagnostics to buffers
         -- You should not change this unless the plugin does not work with your configuration
         overwrite_events = nil,
-    },
-    disabled_ft = {} -- List of filetypes to disable the plugin
-})
+      },
+      disabled_ft = {} -- List of filetypes to disable the plugin
+    })
+  end
+}

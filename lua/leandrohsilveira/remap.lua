@@ -31,6 +31,11 @@ set("n", "Q", "<nop>", { desc = "DISABLED: Close NeoVim" })
 
 set("i", "<C-c>", "<Esc>")
 
+set("n", '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+set("n", ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+set("n", 'ld', vim.diagnostic.open_float, { desc = 'Show [L]SP [D]iagnostic messages in a popup' })
+set("n", 'lq', vim.diagnostic.setloclist, { desc = 'Open [L]SP diagnostic [Q]uickfix list' })
+
 set("n", "<C-k>", "<cmd>cnext<CR>zz")
 set("n", "<C-j>", "<cmd>cprev<CR>zz")
 set("n", "<leader>k", "<cmd>lnext<CR>zz")

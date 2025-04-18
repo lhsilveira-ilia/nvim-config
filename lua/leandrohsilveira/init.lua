@@ -1,4 +1,6 @@
 require("leandrohsilveira.remap")
 require("leandrohsilveira.set")
-require("leandrohsilveira.packer")
+require("leandrohsilveira.lazy")
+require("leandrohsilveira.colorscheme")
 require("leandrohsilveira.filetypes")
+require("leandrohsilveira.autocmds")
