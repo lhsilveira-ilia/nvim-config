@@ -43,6 +43,12 @@ return {
 						{ desc = "Go to LSP implementations using telescope" }
 					)
 					vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Show LSP references using telescope" })
+					vim.keymap.set(
+						"n",
+						"gh",
+						builtin.lsp_incoming_calls,
+						{ desc = "Show LSP references using telescope" }
+					)
 				end,
 			})
 		end,
