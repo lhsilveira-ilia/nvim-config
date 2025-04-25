@@ -21,6 +21,7 @@ return {
           "svelte",
           "vtsls",
           "emmet_ls",
+          "jsonls",
         },
         handlers = {
           function(server_name)
