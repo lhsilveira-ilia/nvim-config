@@ -147,6 +147,7 @@ return {
       cmp.setup({
         sources = {
           { name = "nvim_lsp" },
+          { name = "codeium" }
         },
         snippet = {
           expand = function(args)
