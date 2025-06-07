@@ -83,6 +83,12 @@ return {
         }
       }
 
+      lspconfig.emmet_ls.setup {
+        -- on_attach = on_attach,
+        capabilities = lspconfig_defaults.capabilities,
+        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "templ" },
+      }
+
       -- This is where you enable features that only work
       -- if there is a language server active in the file
       vim.api.nvim_create_autocmd("LspAttach", {
