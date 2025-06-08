@@ -144,7 +144,7 @@ return {
             "n",
             "<leader>lA",
             '<cmd>lua vim.lsp.buf.code_action({ context = { only = { "source" } } })<cr>',
-            opts(event.buf, "LSP: Code actions")
+            opts(event.buf, "LSP: Source actions")
           )
         end,
       })
