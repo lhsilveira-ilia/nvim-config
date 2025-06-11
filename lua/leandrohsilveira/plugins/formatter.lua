@@ -20,6 +20,9 @@ return {
         -- rust = { "rustfmt", lsp_format = "fallback" },
         -- Conform will run the first available formatter
         markdown = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yml = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
         css = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
         javascriptreact = { "prettierd", "prettier", stop_after_first = true },
