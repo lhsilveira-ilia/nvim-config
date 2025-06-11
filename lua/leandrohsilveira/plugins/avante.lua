@@ -1,3 +1,6 @@
+-- comment the line below to activate this plugin
+if true then return {} end
+
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -5,8 +8,25 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    provider = "copilot",
+    -- provider = "copilot",
     -- provider = "openai",
+    -- provider = "claude",
+    provider = "ollama",
+    providers = {
+      ollama = {
+        endpoint = "http://localhost:11434",
+        model = "qwen3:latest",
+      },
+    },
+    -- providers = {
+    --   claude = {
+    --     endpoint = "https://api.anthropic.com",
+    --     model = "claude-sonnet-4-20250514",
+    --     api_key_name = "ANTHROPIC_API_KEY", -- nome da variável de ambiente
+    --     -- ou diretamente (não recomendado por segurança):
+    --     -- api_key = "sua_chave_aqui"
+    --   },
+    -- },
     -- openai = {
     --   endpoint = "https://api.openai.com/v1",
     --   model = "gpt-4o",             -- your desired model (or use gpt-4o, etc.)
