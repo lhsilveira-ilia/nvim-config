@@ -127,24 +127,24 @@ return {
             opts(event.buf, "LSP: Show signature help")
           )
 
-          vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts(event.buf, "LSP: Rename"))
+          vim.keymap.set({ "n", "x" }, "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts(event.buf, "LSP: Rename"))
           vim.keymap.set(
-            "n",
+            { "n", "x" },
             "<leader>lr",
             "<cmd>lua vim.lsp.buf.rename()<cr>",
             opts(event.buf, "LSP: Rename")
           )
           vim.keymap.set(
-            "n",
+            { "n", "x" },
             "<leader>la",
             "<cmd>lua vim.lsp.buf.code_action()<cr>",
             opts(event.buf, "LSP: Code actions")
           )
           vim.keymap.set(
-            "n",
+            { "n", "x" },
             "<leader>lA",
             '<cmd>lua vim.lsp.buf.code_action({ context = { only = { "source" } } })<cr>',
-            opts(event.buf, "LSP: Source actions")
+            opts(event.buf, "LSP: Code actions")
           )
         end,
       })
