@@ -99,9 +99,9 @@ return {
           end
 
           -- these keymaps are set using telescope
-          -- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts(event.buf, ""))
-          -- vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts(event.buf, ""))
-          -- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts(event.buf, "LSP: Show references"))
+          -- vim.keymap.set('n', 'grd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts(event.buf, "LSP: Go to definitions"))
+          -- vim.keymap.set('n', 'gri', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts(event.buf, "LSP: Show implementations"))
+          -- vim.keymap.set('n', 'grr', '<cmd>lua vim.lsp.buf.references()<cr>', opts(event.buf, "LSP: Show references"))
           vim.keymap.set(
             "n",
             "K",
@@ -110,13 +110,13 @@ return {
           )
           vim.keymap.set(
             "n",
-            "gD",
+            "grD",
             "<cmd>lua vim.lsp.buf.declaration()<cr>",
             opts(event.buf, "LSP: Go to declaration")
           )
           vim.keymap.set(
             "n",
-            "go",
+            "grt",
             "<cmd>lua vim.lsp.buf.type_definition()<cr>",
             opts(event.buf, "LSP: Go to type definition")
           )
@@ -128,6 +128,12 @@ return {
           )
 
           vim.keymap.set({ "n", "x" }, "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts(event.buf, "LSP: Rename"))
+          vim.keymap.set(
+            { "n", "x" },
+            "grn",
+            "<cmd>lua vim.lsp.buf.rename()<cr>",
+            opts(event.buf, "LSP: Rename")
+          )
           vim.keymap.set(
             { "n", "x" },
             "<leader>lr",
@@ -142,9 +148,15 @@ return {
           )
           vim.keymap.set(
             { "n", "x" },
+            "gra",
+            "<cmd>lua vim.lsp.buf.code_action()<cr>",
+            opts(event.buf, "LSP: Code actions")
+          )
+          vim.keymap.set(
+            { "n", "x" },
             "<leader>lA",
             '<cmd>lua vim.lsp.buf.code_action({ context = { only = { "source" } } })<cr>',
-            opts(event.buf, "LSP: Code actions")
+            opts(event.buf, "LSP: Source actions")
           )
         end,
       })

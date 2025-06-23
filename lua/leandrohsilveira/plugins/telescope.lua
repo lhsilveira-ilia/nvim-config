@@ -26,26 +26,26 @@ return {
       vim.keymap.set("n", "<leader>ls", builtin.lsp_document_symbols, { desc = "Find symbols" })
 
       vim.api.nvim_create_autocmd("LspAttach", {
-        desc = "LSP actions",
+        desc = "LSP telescope actions",
         callback = function()
           vim.keymap.set(
             "n",
-            "gd",
+            "grd",
             builtin.lsp_definitions,
-            { desc = "Go to LSP definitions" }
+            { desc = "LSP: Go to definitions" }
           )
           vim.keymap.set(
             "n",
-            "gi",
+            "gri",
             builtin.lsp_implementations,
-            { desc = "Go to LSP implementations" }
+            { desc = "LSP: Go to implementations" }
           )
-          vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Show LSP references" })
+          vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "LSP: Go to references" })
           vim.keymap.set(
             "n",
-            "gh",
+            "grc",
             builtin.lsp_incoming_calls,
-            { desc = "Show LSP incoming calls" }
+            { desc = "LSP: Go to incoming calls" }
           )
         end,
       })
