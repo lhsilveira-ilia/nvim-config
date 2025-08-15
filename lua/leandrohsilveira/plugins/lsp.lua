@@ -43,7 +43,8 @@ return {
       lspconfig_defaults.capabilities = vim.tbl_deep_extend(
         "force",
         lspconfig_defaults.capabilities,
-        require("cmp_nvim_lsp").default_capabilities()
+        require("cmp_nvim_lsp").default_capabilities(),
+        require('lsp-file-operations').default_capabilities()
       )
       -- lspconfig_defaults.capabilities.textDocument.foldingRange = {
       --   dynamicRegistration = false,
@@ -86,7 +87,7 @@ return {
       lspconfig.emmet_ls.setup {
         -- on_attach = on_attach,
         capabilities = lspconfig_defaults.capabilities,
-        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "templ" },
+        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "templ", "heex" },
       }
 
       -- This is where you enable features that only work
