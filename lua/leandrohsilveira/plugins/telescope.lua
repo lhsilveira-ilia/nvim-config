@@ -40,7 +40,7 @@ return {
             builtin.lsp_implementations,
             { desc = "Go to LSP implementations" }
           )
-          vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Show LSP references" })
+          vim.keymap.set("n", "grr", builtin.lsp_references, { desc = "Show LSP references" })
           vim.keymap.set(
             "n",
             "gh",
